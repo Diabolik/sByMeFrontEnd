@@ -1,8 +1,9 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.navbar-brand img {
+  max-height:66px;
+  margin-top: -15px;
 }
-
-a {
-  color: #00B7FF;
+#MainMenu.navbar #navbar-main .navbar-nav>li>a:hover, #MainMenu.navbar #navbar-main .navbar-nav>li>a:active, #MainMenu.navbar #navbar-main .navbar-nav>li>a:focus, #MainMenu.navbar #navbar-main .navbar-nav>.active>a, #MainMenu.navbar #navbar-main .navbar-nav>.active>a:hover, #MainMenu.navbar #navbar-main .navbar-nav>.active>a:focus, #MainMenu.navbar #navbar-main .navbar-nav>li.open>a, #MainMenu.navbar #navbar-main .navbar-nav>li.open>a:hover, #MainMenu.navbar #navbar-main .navbar-nav>li.open>a:focus {
+  border-top: solid 2px #E4701D;
 }
+h3 em {color: #E4701D;}
+.panel-body:hover .read-more{background:rgba(228,112,29,0.9) !important;}

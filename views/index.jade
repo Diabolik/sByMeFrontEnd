@@ -1,158 +1,434 @@
-doctype
-html( lang="en" )
-	head
-		title Baking Bootstrap Snippets with Jade
-		meta( charset='utf-8' )
-		meta( http-equiv='X-UA-Compatible', content='IE=edge' )
-		meta( name='viewport', content='width=device-width, initial-scale=1.0' )
-		meta( name='description', content='Baking Bootstrap Snippets with Jade' )
-		//- Bootswatch Theme
-		link(href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/flatly/bootstrap.min.css", rel="stylesheet")
+extends layout
 
-	body(style="padding-bottom:10rem;")
-		.container
+block content
+  .navbar-wrapper
+    header#MainMenu.navbar.navbar-default.navbar-fixed-top
+      .navbar-extra-top.clearfix
+        .navbar.container-fluid
+          ul.nav.navbar-nav.navbar-left
+            li.menu-item
+              a(href='contact.html')
+                i.fa.fa-envelope
+                |  Contactanos
+            li.menu-item
+              a(href='#')
+                i.fa.fa-suitcase
+                |  ¡Únete a Explorar!
+            li.menu-item
+              a(href='login.html')
+                i.fa.fa-sign-in
+                |  Iniciar Sesión
+          .navbar-top-right
+            ul.nav.navbar-nav.navbar-right
+              li
+                a(href='#')
+                  i.fa.fa-facebook.fa-fw
+              li
+                a(href='#')
+                  i.fa.fa-google-plus.fa-fw
+              li
+                a(href='#')
+                  i.fa.fa-twitter.fa-fw
+            form.navbar-form.navbar-right.navbar-search(role='search', action='search.html')
+              .form-group
+                input.form-control(type='text', placeholder='Search')
+              button.btn.btn-default(type='submit')
+                span.fa.fa-search
+      #navbar-main-container.container-fluid.collapse-md
+        .navbar-header
+          a.navbar-brand(href='#')
+            img(alt='sByMe!', src='/images/logo-symbol.png')
+            span.sr-only   sByMe
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        nav#navbar-main.navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='#') Artículos
+            li
+              a(href='#') Test
+  //Section Heroe			  
+  section.hero.hero-overlap(style="background-image: url('images/hero-1.jpg');")
+    .bg-overlay
+      .container
+        .intro-wrap
+          h1.intro-title Todo largo camino empieza con un primer paso.
+          .intro-text
+            | Descubre tu siguiente gran aventura, 
+            a(href='#') Atrévete a empezar.
+  //Section Destinations
+  section.featured-destinations
+    .container
+      .cards.overlap
+        // Section Title
+        .title-row
+          h3.title-entry Recomendaciones en Puebla
+          a.btn.btn-primary.btn-xs(href='destinations-list.html')
+            | Otras recomendaciones   
+            i.fa.fa-angle-right
+        // Cards Row
+        .row
+          .col-md-3.col-sm-6.col-xs-12
+            article.card
+              a.featured-image(href='destination-parent.html', style='background-image: url(images/featured-destination-1.jpg)')
+                .featured-img-inner
+              .card-Detalles
+                h4.card-title
+                  a(href='destination-parent.html') Rueda de la Fortuna
+                .meta-Detalles.clearfix
+                  ul.hierarchy
+                    li.symbol
+                      i.fa.fa-map-marker
+                    li
+                      a(href='destination-parent.html') Lugar de Interés
+          .col-md-3.col-sm-6.col-xs-12
+            article.card
+              a.featured-image(href='destination-parent.html', style='background-image: url(images/featured-destination-2.jpg)')
+                .featured-img-inner
+              .card-Detalles
+                h4.card-title
+                  a(href='destination-parent.html') El Mural de los Poblanos
+                .meta-Detalles.clearfix
+                  ul.hierarchy
+                    li.symbol
+                      i.fa.fa-map-marker
+                    li
+                      a(href='destination-parent.html') Alimentos y Bebidas
+          .col-md-3.col-sm-6.col-xs-12
+            article.card
+              a.featured-image(href='destination-parent.html', style='background-image: url(images/featured-destination-3.jpg)')
+                .featured-img-inner
+              .card-Detalles
+                h4.card-title
+                  a(href='destination-parent.html') Hostal Leonora
+                .meta-Detalles.clearfix
+                  ul.hierarchy
+                    li.symbol
+                      i.fa.fa-map-marker
+                    li
+                      a(href='destination-parent.html') Hospedaje
+          .col-md-3.col-sm-6.col-xs-12
+            article.card
+              a.featured-image(href='destination-parent.html', style='background-image: url(images/featured-destination-4.jpg)')
+                .featured-img-inner
+              .card-Detalles
+                h4.card-title
+                  a(href='destination-parent.html') Callejón de los Sapos
+                .meta-Detalles.clearfix
+                  ul.hierarchy
+                    li.symbol
+                      i.fa.fa-map-marker
+                    li
+                      a(href='destination-parent.html') Lugar de Interés
+  //Section Traveling
+  section.regular
+    .container
+      .row
+        .col-md-12.col-lg-4
+          figure(style='text-align:center')
+            img(src='images/logo-symbol.png', alt='sByMe', width='387', height='214')
+        .col-md-10.col-md-offset-1.col-lg-8.col-lg-offset-0
+          .col-md-12.col-lg-10.col-lg-offset-1
+            h3(style='text-align: center;')
+              | ¿Vas a viajar con tu auto? Comparte tu viaje con  
+              em sByMe
+          .col-sm-12
+            form.big-search
+              input(type='text', placeholder='Encuentra quien comparta su aventura...')
+              button(type='submit')
+                span.glyphicon.glyphicon-search
+  //Section Accordeon
+  section.regular.background
+    .container
+      .row
+        h3.hidden Destination Categories
+        .col-md-6.col-lg-4
+          article.card.accordion-card
+            header
+              h3.section-title Pueblos Mágicos
+              p
+                | Lugares de México que han sabido guardar la riqueza cultural e histórica que encierran. 
+            .accordion-panel
+              #accordion-1.panel-group(role='tablist', aria-multiselectable='true')
+                // Guide Panel
+                .panel.panel-default(style="background-image: url('images/magico_01.jpg');")
+                  #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
+                    .panel-body
+                      .read-more
+                        | Detalles 
+                        i.fa.fa-arrow-right
+                      a(href='guide-single.html')
+                        .spacer
+                  a(data-toggle='collapse', data-parent='#accordion-1', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
+                    #headingOne.panel-heading(role='tab')
+                      .panel-icon
+                        i.fa.fa-map-marker
+                      h4.panel-title Coatepec, Veracruz
+                      ul.hierarchy
+                        li México
+                // Guide Panel
+                .panel.panel-default(style="background-image: url('images/magico_02.jpg');")
+                  #collapseThree.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingThree')
+                    .panel-body
+                      .read-more
+                        | Detalles 
+                        i.fa.fa-arrow-right
+                      a(href='guide-single.html')
+                        .spacer
+                  a(data-toggle='collapse', data-parent='#accordion-1', href='#collapseThree', aria-expanded='true', aria-controls='collapseThree')
+                    #headingThree.panel-heading(role='tab')
+                      .panel-icon
+                        i.fa.fa-map-marker
+                      h4.panel-title Cholula, Puebla
+                      ul.hierarchy
+                        li México
+                // Guide Panel
+                .panel.panel-default(style="background-image: url('images/magico_03.jpg');")
+                  #collapseFour.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingFour')
+                    .panel-body
+                      .read-more
+                        | Detalles 
+                        i.fa.fa-arrow-right
+                      a(href='guide-single.html')
+                        .spacer
+                  a(data-toggle='collapse', data-parent='#accordion-1', href='#collapseFour', aria-expanded='true', aria-controls='collapseFour')
+                    #headingFour.panel-heading(role='tab')
+                      .panel-icon
+                        i.fa.fa-map-marker
+                      h4.panel-title Real del Monte, Hidalgo
+                      ul.hierarchy
+                        li México
+            footer
+              a(href='#')
+                | Más Información
+                i.fa.fa-arrow-right
+        .col-md-6.col-lg-4
+          article.card.accordion-card
+            header
+              h3.section-title Hermosas Playas
+              p Head for a swim and relax on the warm, golden sand. Life's a beach!
+            .accordion-panel
+              #accordion-2.panel-group(role='tablist', aria-multiselectable='true')
+                // Guide Panel
+                .panel.panel-default(style="background-image: url('assets/images/destinations-14-960x540.jpg');")
+                  #collapseOne-2.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
+                    .panel-body
+                      .read-more
+                        | Details 
+                        i.fa.fa-arrow-right
+                      a(href='guide-single.html')
+                        .spacer
+                  a(data-toggle='collapse', data-parent='#accordion-2', href='#collapseOne-2', aria-expanded='true', aria-controls='collapseOne-2')
+                    #headingOne-2.panel-heading(role='tab')
+                      .panel-icon
+                        i.fa.fa-map-marker
+                      h4.panel-title Acapulco, Mexico
+                      ul.hierarchy
+                        li North America
+                // Guide Panel
+                .panel.panel-default(style="background-image: url('assets/images/destinations-13-960x540.jpg');")
+                  #collapseTwo-2.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo-2')
+                    .panel-body
+                      .read-more
+                        | Details 
+                        i.fa.fa-arrow-right
+                      a(href='guide-single.html')
+                        .spacer
+                  a(data-toggle='collapse', data-parent='#accordion-2', href='#collapseTwo-2', aria-expanded='true', aria-controls='collapseTwo-2')
+                    #headingTwo-2.panel-heading(role='tab')
+                      .panel-icon
+                        i.fa.fa-map-marker
+                      h4.panel-title Whitehaven Beach, Australia
+                      ul.hierarchy
+                        li Oceania
+                // Guide Panel
+                .panel.panel-default(style="background-image: url('assets/images/destinations-5-960x540.jpg');")
+                  #collapseThree-2.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingThree')
+                    .panel-body
+                      .read-more
+                        | Details 
+                        i.fa.fa-arrow-right
+                      a(href='guide-single.html')
+                        .spacer
+                  a(data-toggle='collapse', data-parent='#accordion-2', href='#collapseThree-2', aria-expanded='true', aria-controls='collapseThree-2')
+                    #headingThree-2.panel-heading(role='tab')
+                      .panel-icon
+                        i.fa.fa-map-marker
+                      h4.panel-title Algarve, Portugal
+                      ul.hierarchy
+                        li Europe
+            footer
+              a(href='#')
+                | Más Información
+                i.fa.fa-arrow-right
 
-			.page-header: h1 Navbars-Al
-			
-			//- Basic navbar, inverse color
-			nav.navbar.navbar-inverse( role="navigation" )
-				.navbar-header
-					button.navbar-toggle.collapsed( type="button", data-toggle="collapse", data-target="#navbar-default", aria-expanded="false", aria-controls="navbar")
-						span.sr-only Toggle navigation
-						span.icon-bar
-						span.icon-bar
-						span.icon-bar
-					a.navbar-brand(href="#") Project name
-
-				#navbar-default.collapse.navbar-collapse
-					ul.nav.navbar-nav
-						li.active: a( href="#") Home
-						li: a( href="#about" ) About
-						li: a( href="#contact" ) Contact
-
-			//- Navbar with dropdowns, default color
-			nav.navbar.navbar-default( role="navigation" )
-				.navbar-header
-					button.navbar-toggle.collapsed( type="button", data-toggle="collapse", data-target="#navbar-inverse", aria-expanded="false", aria-controls="navbar")
-						span.sr-only Toggle navigation
-						span.icon-bar
-						span.icon-bar
-						span.icon-bar
-					a.navbar-brand(href="#") Project name
-
-				#navbar-inverse.collapse.navbar-collapse
-					ul.nav.navbar-nav
-						li.active: a( href="#") Home
-						li: a( href="#about" ) About
-						li: a( href="#contact" ) Contact
-						li.dropdown
-							a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Dropdown 
-								span.caret
-							ul.dropdown-menu( role="menu" )
-								li: a( href="#" ) Action
-								li: a( href="#" ) Another action
-								li: a( href="#" ) Something else here
-								li.divider
-								li.dropdown-header Nav header
-								li: a( href="#" ) Separated link
-								li: a( href="#" ) One more separated link
-
-
-			.page-header
-				h1 Grid &amp; Panels
-			.row
-				.col-md-4.col-sm-6.col-xs-12
-					.panel.panel-default
-						.panel-heading Panel Heading
-						.panel-body We are a fairly small, flexible design studio that designs for print and web. We work flexibly with clients to fulfil their design needs. Whether you need to create a brand from scratch, including marketing materials and a beautiful and functional website or whether you are looking for a design refresh we are confident you will be pleased with the results.
-
-				.col-md-4.col-sm-6.col-xs-12
-					.panel.panel-success
-						.panel-heading Panel Heading
-						.panel-body We are a fairly small, flexible design studio that designs for print and web. We work flexibly with clients to fulfil their design needs. Whether you need to create a brand from scratch, including marketing materials and a beautiful and functional website or whether you are looking for a design refresh we are confident you will be pleased with the results.
-	
-				.col-md-4.col-sm-6.col-xs-12
-					.panel.panel-primary
-						.panel-heading Panel Heading
-						.panel-body We are a fairly small, flexible design studio that designs for print and web. We work flexibly with clients to fulfil their design needs. Whether you need to create a brand from scratch, including marketing materials and a beautiful and functional website or whether you are looking for a design refresh we are confident you will be pleased with the results.
-
-
-			//- Buttons
-			.page-header: h1 Buttons &amp; Alerts
-
-			.row
-				.col-sm-6.col-xs-12
-
-					a.btn.btn-default Default
-					| &nbsp;
-					a.btn.btn-primary( href="link.htm" ) Primary
-					| &nbsp;
-					a.btn.btn-success Success
-					| &nbsp;
-					a.btn.btn-info Info
-					| &nbsp;
-					a.btn.btn-warning Warning
-					| &nbsp;
-					a.btn.btn-danger Danger
-					| &nbsp;
-
-				.col-sm-6.col-xs-12
-					.alert.alert-dismissable.alert-warning
-						button.close( type="button", data-dismiss="alert" ) ×
-						| Warning! Warning!
-					.alert.alert-dismissable.alert-danger
-						button.close( type="button", data-dismiss="alert" ) ×
-						| Danger Will Robinson!
-					.alert.alert-dismissable.alert-success
-						button.close( type="button", data-dismiss="alert" ) ×
-						| You succeeded :-)
-					.alert.alert-dismissable.alert-info
-						button.close( type="button", data-dismiss="alert" ) ×
-						| Some information for you
-
-			//- Jumbotron
-			.page-header: h1 Jumbotron
-
-			.jumbotron
-				h1 Hello, world!
-				p This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
-				p: a.btn.btn-primary.btn-lg Learn more
-			
-			.page-header
-				h1 List Groups
-			.row
-				.col-md-4.col-sm-12
-					ul.list-group
-						li.list-group-item.active Cras justo odio
-						li.list-group-item Dapibus ac facilisis in
-						li.list-group-item Morbi leo risus
-						li.list-group-item Dapibus ac facilisis in
-						li.list-group-item Morbi leo risus
-						li.list-group-item Dapibus ac facilisis in
-				
-				.col-md-4.col-sm-12
-					.list-group
-						.list-group-item( href="#" )
-							h4.list-group-item-heading List group item heading
-							p.list-group-item-text Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-						.list-group-item( href="#" )
-							h4.list-group-item-heading List group item heading
-							p.list-group-item-text Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-						.list-group-item( href="#" )
-							h4.list-group-item-heading List group item heading
-							p.list-group-item-text Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-				
-				.col-md-4.col-sm-12
-					.list-group
-						a.list-group-item.active( href="#" )
-							h4.list-group-item-heading List group item heading
-							p.list-group-item-text Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-						a.list-group-item( href="#" )
-							h4.list-group-item-heading List group item heading
-							p.list-group-item-text Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-						a.list-group-item( href="#" )
-							h4.list-group-item-heading List group item heading
-							p.list-group-item-text Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-
-		script( src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' )
-		script( src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js' )
+        .col-md-12.col-lg-4
+          article.card.accordion-card
+            header
+              h3.section-title Crowd Escapers
+              p
+                | Step away from the crowd, explore places where you'll feel no one has ever been before.
+            .accordion-panel
+              #accordion-3.panel-group(role='tablist', aria-multiselectable='true')
+                // Guide Panel
+                .panel.panel-default(style="background-image: url('assets/images/destinations-22-960x540.jpg');")
+                  #collapseOne-3.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
+                    .panel-body
+                      .read-more
+                        | Details 
+                        i.fa.fa-arrow-right
+                      a(href='guide-single.html')
+                        .spacer
+                  a(data-toggle='collapse', data-parent='#accordion-3', href='#collapseOne-3', aria-expanded='true', aria-controls='collapseOne-3')
+                    #headingOne-3.panel-heading(role='tab')
+                      .panel-icon
+                        i.fa.fa-map-marker
+                      h4.panel-title Galapagos Islands, Ecuador
+                      ul.hierarchy
+                        li South America
+                // Guide Panel
+                .panel.panel-default(style="background-image: url('assets/images/destinations-19-960x540.jpg');")
+                  #collapseThree-3.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingThree')
+                    .panel-body
+                      .read-more
+                        | Details 
+                        i.fa.fa-arrow-right
+                      a(href='guide-single.html')
+                        .spacer
+                  a(data-toggle='collapse', data-parent='#accordion-3', href='#collapseThree-3', aria-expanded='true', aria-controls='collapseThree-3')
+                    #headingThree-3.panel-heading(role='tab')
+                      .panel-icon
+                        i.fa.fa-map-marker
+                      h4.panel-title Yellowstone, USA
+                      ul.hierarchy
+                        li North America
+                // Guide Panel
+                .panel.panel-default(style="background-image: url('assets/images/destinations-21-960x540.jpg');")
+                  #collapseFour-3.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingFour')
+                    .panel-body
+                      .read-more
+                        | Details 
+                        i.fa.fa-arrow-right
+                      a(href='guide-single.html')
+                        .spacer
+                  a(data-toggle='collapse', data-parent='#accordion-3', href='#collapseFour-3', aria-expanded='true', aria-controls='collapseFour-3')
+                    #headingFour-3.panel-heading(role='tab')
+                      .panel-icon
+                        i.fa.fa-map-marker
+                      h4.panel-title Foz do Iguacu, Brasil
+                      ul.hierarchy
+                        li South America
+            footer
+              a(href='#')
+                | Más Información
+                i.fa.fa-arrow-right
+  //Section Blogs
+  section.regular.blog-posts
+    .container
+      // Section Title
+      .title-row
+        h3.title-entry Artículos & Blogs
+        a.btn.btn-primary.btn-xs(href='blog.html')
+          | Más Información   
+          i.fa.fa-angle-right
+      .row
+        .col-md-3.col-sm-6
+          article.post
+            .card
+              header.entry-header
+                a(href='single-hero.html')
+                  .entry-thumbnail(style="background-image: url('images/blog_01.jpg')")
+                    img(alt='', title='', src='images/blog-placeholder-vertical.png', width='600', height='800')
+                  h2.entry-title Guia del Mochilero Extremo
+              footer.entry-meta.clearfix
+                span.byline
+                  i.fa.fa-user
+                  span.author.vcard
+                    a.url.fn.n(href='#') Alvaro Romero
+                span.posted-on
+                  a(href='#', rel='bookmark')
+                    time.entry-date.published(datetime='2017-15-01T00:15:40+00:00') 15/01/2017
+        .col-md-3.col-sm-6
+          article.post
+            .card
+              header.entry-header
+                a(href='single-hero.html')
+                  .entry-thumbnail(style="background-image: url('images/blog_02.jpg')")
+                    img(src='images/blog-placeholder-vertical.png', alt='', title='', width='600', height='800')
+                  h2.entry-title Grandes Placeres en pequeños espacios
+              footer.entry-meta.clearfix
+                span.byline
+                  i.fa.fa-user
+                  span.author.vcard
+                    a.url.fn.n(href='#') Ana Castañeda
+                span.posted-on
+                  a(href='#', rel='bookmark')
+                    time.entry-date.published(datetime='2017-15-01T00:15:40+00:00') 15/01/2017
+        .col-md-3.col-sm-6
+          article.post
+            .card
+              header.entry-header
+                a(href='single-hero.html')
+                  .entry-thumbnail(style="background-image: url('images/blog_03.jpg');")
+                    img(src='images/blog-placeholder-vertical.png', alt='', title='', width='600', height='800')
+                  h2.entry-title Viajar en el tiempo: Reflexiones mochileras en el bosque
+              footer.entry-meta.clearfix
+                span.byline
+                  i.fa.fa-user
+                  span.author.vcard
+                    a.url.fn.n(href='#') Juan Pérez
+                span.posted-on
+                  a(href='#', rel='bookmark')
+                    time.entry-date.published(datetime='2017-15-01T00:15:40+00:00') 15/01/2017
+        .col-md-3.col-sm-6
+          article.post
+            .card
+              header.entry-header
+                a(href='single-hero.html')
+                  .entry-thumbnail(style="background-image: url('images/blog_04.jpg');")
+                    img(src='images/blog-placeholder-vertical.png', alt='', title='', width='600', height='800')
+                  h2.entry-title 9 reglas para ahorrar dinero (y viajar más)
+              footer.entry-meta.clearfix
+                span.byline
+                  i.fa.fa-user
+                  span.author.vcard
+                    a.url.fn.n(href='#') Brenda Castañeda
+                span.posted-on
+                  a(href='#', rel='bookmark')
+                    time.entry-date.published(datetime='2017-15-01T00:15:40+00:00') 15/01/2017
+  footer#footer
+    section.top-footer.regular
+      .container
+        .row
+          h3.hidden More Resources
+          .col-lg-9
+            .footer-content-left
+              p(style='font-size:14px; color:#aaa;')
+                a(href='page.html') Acerca de
+                |    
+                a(href='login.html') Iniciar Sesión
+                |    
+                a(href='cover-with-page-content.html') ¡Únete a Explorar!
+                |    
+                a(href='blog.html') Blog
+                |    
+                a(href='contact.html') Contáctanos
+              p(style='font-size:14px; color: #999; margin-bottom:0;')
+                | Created by 
+                a(href='http://mercurysolutions.com.mx', target='_blank') Mercury Solutions.
+          .col-lg-3
+            .footer-content-right
+              .visible-lg-block(style='text-align: right;')
+                img(src='images/logo-symbol.png', alt='sByMe!', width='1024', height='565', style='max-width: 175px;')
+    section.sub-footer
+      .container
+        .row
+          h3.hidden About
+          .col-xs-12
+            span(style='color:#999; font-size: 13px;')
+              | © 2017 Mercury Solutions | sByMe Terms of Use and Privacy Policy.
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
+  script(src='scripts/bootstrap.min.js')
+  script(src='scripts/custom.js')
